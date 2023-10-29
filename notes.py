@@ -29,3 +29,15 @@ def delete_note(note_id):
             print(f'Заметка с ID {note_id} успешно удалена.')
             return
     print(f'Заметка с ID {note_id} не найдена.')
+
+# Функция для сохранения заметок в JSON файл
+def save_notes():
+    with open(data_file, 'w') as file:
+        json.dump(notes, file)
+
+# Проверяем, существует ли файл с данными, и загружаем заметки
+if os.path.exists(data_file):
+    with open(data_file, 'r') as file:
+        notes = json.load(file)
+else:
+    notes = []
