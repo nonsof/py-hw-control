@@ -41,3 +41,28 @@ if os.path.exists(data_file):
         notes = json.load(file)
 else:
     notes = []
+# Основной цикл приложения
+while True:
+    print('Выберите действие:')
+    print('1. Добавить заметку')
+    print('2. Вывести список заметок')
+    print('3. Удалить заметку')
+    print('4. Выйти')
+    choice = input()
+
+    if choice == '1':
+        title = input('Введите заголовок заметки: ')
+        message = input('Введите текст заметки: ')
+        add_note(title, message)
+        save_notes()
+    elif choice == '2':
+        list_notes()
+    elif choice == '3':
+        note_id = int(input('Введите ID заметки для удаления: '))
+        delete_note(note_id)
+        save_notes()
+    elif choice == '4':
+        print('До свидания!')
+        break
+    else:
+        print('Неверный выбор. Попробуйте еще раз.')
