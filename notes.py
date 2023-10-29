@@ -16,3 +16,16 @@ def add_note(title, message):
     # Добавляем заметку в список
     notes.append(note)
     print('Заметка успешно добавлена.')
+# Функция для вывода всех заметок
+def list_notes():
+    for note in notes:
+        print(f'{note["id"]}. {note["title"]} ({note["timestamp"]})')
+
+# Функция для удаления заметки по ID
+def delete_note(note_id):
+    for note in notes:
+        if note['id'] == note_id:
+            notes.remove(note)
+            print(f'Заметка с ID {note_id} успешно удалена.')
+            return
+    print(f'Заметка с ID {note_id} не найдена.')
